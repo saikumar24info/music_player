@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:music_player/controls.dart';
 
@@ -26,18 +27,19 @@ class MyApp extends StatelessWidget {
               ),
             ]),
         body: Container(
-          color: Colors.black87,
+          color: Colors.white,
           child: Padding(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.all(5),
             child: Column(children: [
               Container(
                 width: double.infinity,
                 height: 450,
-                child: Image.asset(
-                    "https://e7.pngegg.com/pngimages/103/460/png-clipart-orange-and-white-music-icon-hearing-audio-equipment-headphones-apps-google-music-orange-audio-equipment.png"),
-                decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(10.0)),
+                child: Image.network(
+                  "https://cdn.pixabay.com/photo/2018/04/30/13/18/music-app-icon-3362643_960_720.png",
+                  fit: BoxFit.cover,
+                ),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(5.0)),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -56,6 +58,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ],
               ),
+              SizedBox(height: 25),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -77,7 +80,10 @@ class MyApp extends StatelessWidget {
                     icon: Icon(Icons.pause),
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      AudioPlayer player = AudioPlayer();
+                      player.stop();
+                    },
                     icon: Icon(Icons.skip_next),
                   ),
                 ],

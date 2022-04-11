@@ -10,6 +10,9 @@ class Controls {
     AudioPlayer player = AudioPlayer();
     player.pause();
   }
- 
- 
+
+  static void stopSong() {
+    AudioPlayer player = AudioPlayer();
+    player.stop();
+  }
 }
